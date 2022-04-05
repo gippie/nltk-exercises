@@ -54,3 +54,9 @@ cfd.tabulate(conditions=genres, samples=modals) #comparo le varie categorie usan
 from nltk.corpus import reuters
 reuters.fileids()
 reuters.categories()
+reuters.fileids(['barley', 'corn'])
+reuters.categories(['training/9865', 'training/9880']) #nel corpus reuters le categorie si sovrappongono dato che in un testo giornalistico si affrontano diversi argomenti
+
+from nltk.corpus import inaugural
+inaugural.fileids()
+[fileid[:4] for fileid in inaugural.fileids()] #estraggo la data dai primi quattro caratteri del titolo - fileid[:4]
