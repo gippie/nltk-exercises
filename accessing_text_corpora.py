@@ -16,3 +16,8 @@ macbeth_sentences
 macbeth_sentences[1116]
 longest_len = max(len(s) for s in macbeth_sentences)
 [s for s in macbeth_sentences if len(s) == longest_len] #cerco la frase più lunga nel testo
+
+from nltk.corpus import webtext
+for fileid in webtext.fileids():
+    print(fileid, webtext.raw(fileid)[:65], '...')
+
