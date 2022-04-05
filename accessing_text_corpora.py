@@ -50,3 +50,7 @@ cfd = nltk.ConditionalFreqDist(
 genres = ['news', 'religion', 'hobbies', 'science_fiction', 'romance', 'humor']
 modals = ['can', 'could', 'may', 'might', 'must', 'will']
 cfd.tabulate(conditions=genres, samples=modals) #comparo le varie categorie usando il supporto integrato di NLTK per le conditional frequency distributions
+
+from nltk.corpus import reuters
+reuters.fileids()
+reuters.categories()
