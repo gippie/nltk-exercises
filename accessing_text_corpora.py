@@ -60,3 +60,15 @@ reuters.categories(['training/9865', 'training/9880']) #nel corpus reuters le ca
 from nltk.corpus import inaugural
 inaugural.fileids()
 [fileid[:4] for fileid in inaugural.fileids()] #estraggo la data dai primi quattro caratteri del titolo - fileid[:4]
+cfd = nltk.ConditionalFreqDist(
+    (target, fileid[:4])
+    for fileid in inaugural.fileids()
+    for w in inaugural.words(fileid)
+    for target in ['america', 'citizen']
+    if w.lower().startswith(target))
+cfd.plot()
+
+nltk.corpus.cess_esp.words()
+nltk.corpus.floresta.words()
+nltk.corpus.indian.words('hindi.pos')
+nltk.corpus.udhr.fileids()
