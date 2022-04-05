@@ -30,3 +30,23 @@ brown.categories()
 brown.words(categories='news')
 brown.words(fileids=['cg22'])
 brown.sents(categories=['news', 'editorial', 'reviews'])
+
+news_text = brown.words(categories='news')
+fdist = nltk.FreqDist(w.lower() for w in news_text)
+modals = ['can', 'could', 'may', 'might', 'must', 'will'] #definisco verbi modali per comparare quanto vengono usati in diversi generi
+for m in modals:
+    print(m + ':', fdist[m], end=' ') #scrivo end per mantenere tutto in linea
+
+mystery_text = brown.words(categories='mystery') #esercizio proposto, cerco le parole wh nella categoria mystery
+fdist_m = nltk.FreqDist(w.lower() for w in mystery_text)
+wh_words = ['what', 'when', 'why', 'where', 'who']
+for w in wh_words:
+    print(w + ':', fdist_m[w], end=' ')
+    
+cfd = nltk.ConditionalFreqDist(
+          (genre, word)
+          for genre in brown.categories()
+          for word in brown.words(categories=genre))
+genres = ['news', 'religion', 'hobbies', 'science_fiction', 'romance', 'humor']
+modals = ['can', 'could', 'may', 'might', 'must', 'will']
+cfd.tabulate(conditions=genres, samples=modals) #comparo le varie categorie usando il supporto integrato di NLTK per le conditional frequency distributions
