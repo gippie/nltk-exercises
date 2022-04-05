@@ -24,3 +24,9 @@ for fileid in webtext.fileids():
 from nltk.corpus import nps_chat
 chatroom = nps_chat.posts('10-19-20s_706posts.xml')
 chatroom[123]
+
+from nltk.corpus import brown
+brown.categories()
+brown.words(categories='news')
+brown.words(fileids=['cg22'])
+brown.sents(categories=['news', 'editorial', 'reviews'])
